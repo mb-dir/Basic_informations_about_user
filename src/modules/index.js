@@ -1,0 +1,14 @@
+// styles import
+import "../styles/test.scss";
+
+// place your code below(you can delete the code below and write your own)
+
+//js modules import
+import "./test.js";
+
+console.log("Hello 🐼");
+
+//Babel test
+document.body.addEventListener("click", ()=>{
+    console.log("Do not touch me!");
+});

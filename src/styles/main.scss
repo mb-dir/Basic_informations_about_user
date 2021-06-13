@@ -17,3 +17,19 @@
 .mainHeader{
     margin: 20px 0 70px;
 }
+//reset for all lists
+.basicList{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+//styles for this unique list
+.informations{
+    &__infoList{
+        //in order to have footer in the bottom of the page, this section will "push" the footer into the bottom
+        min-height: 65vh;
+    }
+    &__info{
+        padding: 10px 0;
+    }
+}

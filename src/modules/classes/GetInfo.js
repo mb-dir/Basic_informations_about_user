@@ -6,6 +6,7 @@ class GetInfo{
             browserName: this.getBrowserName(),
             width: screen.width,
             height: screen.height,
+            previousPage: document.referrer,
         };
     }
     getOperatingSystem(){

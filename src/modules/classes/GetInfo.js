@@ -10,6 +10,7 @@ class GetInfo{
             cookie: navigator.cookieEnabled ? "enabled" : "disabled",
             java: navigator.javaEnabled() ? "enabled" : "disabled",
             mobileOrDesktop: this.mobileOrDesktop(),
+            language: navigator.language,
         };
     }
     getOperatingSystem(){

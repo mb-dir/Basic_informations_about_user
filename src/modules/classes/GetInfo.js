@@ -2,7 +2,8 @@ class GetInfo{
     constructor(infoContainer){
         this.infoContainer = infoContainer;
         this.informationsToShow = {
-            operatingSystem: this.getOperatingSystem()
+            operatingSystem: this.getOperatingSystem(),
+            browserName: this.getBrowserName(),
         };
     }
     getOperatingSystem(){
@@ -19,6 +20,23 @@ class GetInfo{
             OS = "Linux ";
         }
         return OS;
+    }
+    getBrowserName(){
+        let browser = null;
+        if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+            browser = "Opera";
+        } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+            browser =  "Chrome";
+        } else if(navigator.userAgent.indexOf("Safari") != -1) {
+            browser =  "Safari";
+        } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+            browser =  "Firefox";
+        } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+            browser =  "IE";
+        } else {
+            browser =  "Unknown";
+        }
+        return browser;
     }
 }
 

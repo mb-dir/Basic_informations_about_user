@@ -1,2 +1,2 @@
 // styles import
-import "../styles/test.scss";
+import "../styles/main.scss";

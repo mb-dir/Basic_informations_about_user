@@ -4,6 +4,8 @@ class GetInfo{
         this.informationsToShow = {
             operatingSystem: this.getOperatingSystem(),
             browserName: this.getBrowserName(),
+            width: screen.width,
+            height: screen.height,
         };
     }
     getOperatingSystem(){

@@ -7,6 +7,7 @@ class GetInfo{
             width: screen.width,
             height: screen.height,
             previousPage: document.referrer,
+            cookie: navigator.cookieEnabled ? "enabled" : "disabled",
         };
     }
     getOperatingSystem(){

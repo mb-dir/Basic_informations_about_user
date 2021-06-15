@@ -13,6 +13,8 @@ class GetInfo{
             language: navigator.language,
             lastVisit: this.getLastVisit(),
         };
+
+        this.renderInformations();
     }
     getOperatingSystem(){
         let OS = null;
@@ -73,6 +75,15 @@ class GetInfo{
 
         const lastVisitDate = `${year}-${month}-${day}(${weekDays[dayNumber]}), ${hour}:${minutes}`;
         window.localStorage.setItem("lastVisit", lastVisitDate);
+    }
+
+    renderInformations(){
+        for(const[key, value] of Object.entries(this.informationsToShow)){
+            const newInfo = document.createElement("li");
+            newInfo.className = "basicList__element informations__info";
+            newInfo.innerHTML = `${key}: ${value}`;
+            this.infoContainer.appendChild(newInfo);
+        }
     }
 }
 

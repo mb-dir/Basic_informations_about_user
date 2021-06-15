@@ -1,7 +1,9 @@
 class GetInfo{
     constructor(infoContainer){
         this.infoContainer = infoContainer;
-        this.testMethod();
+        this.informationsToShow = {
+               
+        };
     }
     testMethod(){
         alert("hey!");

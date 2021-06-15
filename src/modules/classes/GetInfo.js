@@ -1,6 +1,5 @@
 class GetInfo{
     constructor(infoContainer){
-        this.setDateOfLastVisit();
         this.infoContainer = infoContainer;
         this.informationsToShow = {
             operatingSystem: this.getOperatingSystem(),
@@ -56,6 +55,7 @@ class GetInfo{
     }
     getLastVisit(){
         const date = window.localStorage.getItem("lastVisit");
+        this.setDateOfLastVisit();
         if(date === false){
             return "Now";
         }else{

@@ -81,7 +81,10 @@ class GetInfo{
         for(const[key, value] of Object.entries(this.informationsToShow)){
             const newInfo = document.createElement("li");
             newInfo.className = "basicList__element informations__info";
-            newInfo.innerHTML = `${key}: ${value}`;
+
+            const decryptedKey = key.split("1").join(" ");
+
+            newInfo.innerHTML = `${decryptedKey}: ${value}`;
             this.infoContainer.appendChild(newInfo);
         }
     }

@@ -2,16 +2,16 @@ class GetInfo{
     constructor(infoContainer){
         this.infoContainer = infoContainer;
         this.informationsToShow = {
-            operatingSystem: this.getOperatingSystem(),
-            browserName: this.getBrowserName(),
-            width: `${screen.width}px`,
-            height: `${screen.height}px`,
-            previousPage: document.referrer,
+            Your1operating1system: this.getOperatingSystem(),
+            Your1browser: this.getBrowserName(),
+            Width1of1Your1Screen: `${screen.width}px`,
+            Height1of1Your1Screen: `${screen.height}px`,
+            Website1from1which1you1came1here: document.referrer,
             cookie: navigator.cookieEnabled ? "enabled" : "disabled",
             java: navigator.javaEnabled() ? "enabled" : "disabled",
-            mobileOrDesktop: this.mobileOrDesktop(),
-            language: navigator.language,
-            lastVisit: this.getLastVisit(),
+            Mobile1or1Desktop: this.mobileOrDesktop(),
+            Your1preferred1language: navigator.language,
+            Your1last1visit: this.getLastVisit(),
         };
 
         this.renderInformations();

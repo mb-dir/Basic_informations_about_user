@@ -6,7 +6,7 @@ class GetInfo{
             Your1browser: this.getBrowserName(),
             Width1of1Your1screen: `${screen.width}px`,
             Height1of1Your1screen: `${screen.height}px`,
-            Website1from1which1you1came1here: document.referrer,
+            Website1from1which1you1came1here: document.referrer ? document.referrer : "Probably Github",
             cookie: navigator.cookieEnabled ? "enabled" : "disabled",
             java: navigator.javaEnabled() ? "enabled" : "disabled",
             Mobile1or1Desktop: this.mobileOrDesktop(),

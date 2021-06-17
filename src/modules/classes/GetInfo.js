@@ -4,8 +4,8 @@ class GetInfo{
         this.informationsToShow = {
             Your1operating1system: this.getOperatingSystem(),
             Your1browser: this.getBrowserName(),
-            Width1of1Your1Screen: `${screen.width}px`,
-            Height1of1Your1Screen: `${screen.height}px`,
+            Width1of1Your1screen: `${screen.width}px`,
+            Height1of1Your1screen: `${screen.height}px`,
             Website1from1which1you1came1here: document.referrer,
             cookie: navigator.cookieEnabled ? "enabled" : "disabled",
             java: navigator.javaEnabled() ? "enabled" : "disabled",

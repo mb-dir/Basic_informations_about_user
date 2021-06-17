@@ -58,8 +58,8 @@ class GetInfo{
     getLastVisit(){
         const date = window.localStorage.getItem("lastVisit");
         this.setDateOfLastVisit();
-        if(date === false){
-            return "Now";
+        if(date === null){
+            return "It is Your first visit here";
         }else{
             return date;
         }

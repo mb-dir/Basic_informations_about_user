@@ -15,6 +15,7 @@ class GetInfo{
         };
 
         this.renderInformations();
+        this.timeCurrentlySpentRender();
     }
     getOperatingSystem(){
         let OS = null;
@@ -64,7 +65,7 @@ class GetInfo{
             return date;
         }
     }
-
+    
     //auxiliary methods(methods which do not "download" the informations, but are useful)
     setDateOfLastVisit(){
         const nowDate = new Date();
@@ -76,7 +77,7 @@ class GetInfo{
         const lastVisitDate = `${year}-${month}-${day}(${weekDays[dayNumber]}), ${hour}:${minutes}`;
         window.localStorage.setItem("lastVisit", lastVisitDate);
     }
-
+    //method for properties that do not require intervals
     renderInformations(){
         for(const[key, value] of Object.entries(this.informationsToShow)){
             const newInfo = document.createElement("li");
@@ -87,6 +88,21 @@ class GetInfo{
             newInfo.innerHTML = `${decryptedKey}: ${value}`;
             this.infoContainer.appendChild(newInfo);
         }
+    }
+    //separate method for currently time spent, cuz it requires setInterval and that would be hard to implemate in renderInformations method
+    timeCurrentlySpentRender(){
+        let timeSpent = 0;
+
+        const newInfo = document.createElement("li");
+        newInfo.className = "basicList__element informations__info";
+        newInfo.innerHTML = `Time currently  spent on this page: ${timeSpent}s`;
+
+        this.infoContainer.appendChild(newInfo);
+
+        setInterval(()=>{
+            timeSpent++;
+            newInfo.innerHTML = `Time currently  spent on this page: ${timeSpent}s`;
+        },1000);
     }
 }
 

@@ -16,6 +16,7 @@ class GetInfo{
 
         this.renderInformations();
         this.timeCurrentlySpentRender();
+        this.storageTotalTimeSpent();
     }
     getOperatingSystem(){
         let OS = null;
@@ -115,6 +116,21 @@ class GetInfo{
               }
 
         },1000);
+    }
+    storageTotalTimeSpent(){
+        let spentSeconds = 0;
+        setInterval(()=>{
+            spentSeconds++;
+        },1000);
+
+        addEventListener("unload", ()=>{
+            const timeFormStorage = parseInt(window.localStorage.getItem("totalTime"));
+            if(timeFormStorage){
+                window.localStorage.setItem("totalTime", spentSeconds + timeFormStorage);
+            }else{
+                window.localStorage.setItem("totalTime", spentSeconds); 
+            }
+        });
     }
 }
 

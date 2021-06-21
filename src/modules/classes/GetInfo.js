@@ -91,17 +91,27 @@ class GetInfo{
     }
     //separate method for currently time spent, cuz it requires setInterval and that would be hard to implemate in renderInformations method
     timeCurrentlySpentRender(){
-        let timeSpent = 0;
-
+        let timeSpentSeconds = 0;
+        let timeSpentMinutes = 0;
+        
         const newInfo = document.createElement("li");
         newInfo.className = "basicList__element informations__info";
-        newInfo.innerHTML = `Time currently  spent on this page: ${timeSpent}s`;
+        newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentSeconds}s`;
 
         this.infoContainer.appendChild(newInfo);
 
         setInterval(()=>{
-            timeSpent++;
-            newInfo.innerHTML = `Time currently  spent on this page: ${timeSpent}s`;
+            timeSpentSeconds++;
+
+            if(timeSpentSeconds >= 60){
+                if(timeSpentSeconds%60 === 0){
+                    timeSpentMinutes++;
+                }
+                newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentMinutes}m ${timeSpentSeconds%60}s`;
+              }else{
+                newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentSeconds}s`;
+              }
+
         },1000);
     }
 }

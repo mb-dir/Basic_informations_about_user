@@ -93,6 +93,7 @@ class GetInfo{
     timeCurrentlySpentRender(){
         let timeSpentSeconds = 0;
         let timeSpentMinutes = 0;
+        let timeSpentSecondsMod = 0
         
         const newInfo = document.createElement("li");
         newInfo.className = "basicList__element informations__info";
@@ -102,12 +103,13 @@ class GetInfo{
 
         setInterval(()=>{
             timeSpentSeconds++;
+            timeSpentSecondsMod = timeSpentSeconds%60;
 
             if(timeSpentSeconds >= 60){
-                if(timeSpentSeconds%60 === 0){
+                if(timeSpentSecondsMod === 0){
                     timeSpentMinutes++;
                 }
-                newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentMinutes}m ${timeSpentSeconds%60}s`;
+                newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentMinutes}m ${timeSpentSecondsMod}s`;
               }else{
                 newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentSeconds}s`;
               }

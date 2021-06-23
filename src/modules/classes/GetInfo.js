@@ -73,7 +73,13 @@ class GetInfo{
         const totalTimeMinutes = Math.floor(totalTime/60);
         const totalTimeSeconds = Math.floor(totalTime-(totalTimeHours*3600+totalTimeMinutes*60));
 
-        return `${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;
+        if(totalTimeHours!==0){
+            return `${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;
+        }else if(totalTimeMinutes!==0){
+            return `${totalTimeMinutes}m ${totalTimeSeconds}s`;
+        }else{
+            return `${totalTimeSeconds}s`;
+        }
     }
     
     //auxiliary methods(methods which do not "download" the informations, but are useful)

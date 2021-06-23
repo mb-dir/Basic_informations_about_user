@@ -12,6 +12,7 @@ class GetInfo{
             Mobile1or1Desktop: this.mobileOrDesktop(),
             Your1preferred1language: navigator.language,
             Your1last1visit: this.getLastVisit(),
+            Total1time1spent1on1this1page1by1you: this.getTotalTime(),
         };
 
         this.renderInformations();
@@ -65,6 +66,14 @@ class GetInfo{
         }else{
             return date;
         }
+    }
+    getTotalTime(){
+        const totalTime = parseInt(window.localStorage.getItem("totalTime"));
+        const totalTimeHours = Math.floor(totalTime/3600);
+        const totalTimeMinutes = Math.floor(totalTime/60);
+        const totalTimeSeconds = Math.floor(totalTime-(totalTimeHours*3600+totalTimeMinutes*60));
+
+        return `${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;
     }
     
     //auxiliary methods(methods which do not "download" the informations, but are useful)

@@ -12,9 +12,12 @@ class GetInfo{
             Mobile1or1Desktop: this.mobileOrDesktop(),
             Your1preferred1language: navigator.language,
             Your1last1visit: this.getLastVisit(),
+            Total1time1spent1on1this1page1by1you: this.getTotalTime(),
         };
 
         this.renderInformations();
+        this.timeCurrentlySpentRender();
+        this.storageTotalTimeSpent();
     }
     getOperatingSystem(){
         let OS = null;
@@ -64,7 +67,21 @@ class GetInfo{
             return date;
         }
     }
+    getTotalTime(){
+        const totalTime = parseInt(window.localStorage.getItem("totalTime"));
+        const totalTimeHours = Math.floor(totalTime/3600);
+        const totalTimeMinutes = Math.floor(totalTime/60);
+        const totalTimeSeconds = Math.floor(totalTime-(totalTimeHours*3600+totalTimeMinutes*60));
 
+        if(totalTimeHours!==0){
+            return `${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;
+        }else if(totalTimeMinutes!==0){
+            return `${totalTimeMinutes}m ${totalTimeSeconds}s`;
+        }else{
+            return `${totalTimeSeconds}s`;
+        }
+    }
+    
     //auxiliary methods(methods which do not "download" the informations, but are useful)
     setDateOfLastVisit(){
         const nowDate = new Date();
@@ -76,7 +93,7 @@ class GetInfo{
         const lastVisitDate = `${year}-${month}-${day}(${weekDays[dayNumber]}), ${hour}:${minutes}`;
         window.localStorage.setItem("lastVisit", lastVisitDate);
     }
-
+    //method for properties that do not require intervals
     renderInformations(){
         for(const[key, value] of Object.entries(this.informationsToShow)){
             const newInfo = document.createElement("li");
@@ -87,6 +104,48 @@ class GetInfo{
             newInfo.innerHTML = `${decryptedKey}: ${value}`;
             this.infoContainer.appendChild(newInfo);
         }
+    }
+    //separate method for currently time spent, cuz it requires setInterval and that would be hard to implemate in renderInformations method
+    timeCurrentlySpentRender(){
+        let timeSpentSeconds = 0;
+        let timeSpentMinutes = 0;
+        let timeSpentSecondsMod = 0
+        
+        const newInfo = document.createElement("li");
+        newInfo.className = "basicList__element informations__info";
+        newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentSeconds}s`;
+
+        this.infoContainer.appendChild(newInfo);
+
+        setInterval(()=>{
+            timeSpentSeconds++;
+            timeSpentSecondsMod = timeSpentSeconds%60;
+
+            if(timeSpentSeconds >= 60){
+                if(timeSpentSecondsMod === 0){
+                    timeSpentMinutes++;
+                }
+                newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentMinutes}m ${timeSpentSecondsMod}s`;
+              }else{
+                newInfo.innerHTML = `Time currently  spent on this page: ${timeSpentSeconds}s`;
+              }
+
+        },1000);
+    }
+    storageTotalTimeSpent(){
+        let spentSeconds = 0;
+        setInterval(()=>{
+            spentSeconds++;
+        },1000);
+
+        addEventListener("unload", ()=>{
+            const timeFormStorage = parseInt(window.localStorage.getItem("totalTime"));
+            if(timeFormStorage){
+                window.localStorage.setItem("totalTime", spentSeconds + timeFormStorage);
+            }else{
+                window.localStorage.setItem("totalTime", spentSeconds); 
+            }
+        });
     }
 }
 

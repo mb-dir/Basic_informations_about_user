@@ -85,12 +85,24 @@ class GetInfo{
     //auxiliary methods(methods which do not "download" the informations, but are useful)
     setDateOfLastVisit(){
         const nowDate = new Date();
-        const [month, day, year] = [nowDate.getMonth(), nowDate.getDate(), nowDate.getFullYear()];
-        const [hour, minutes, dayNumber] = [nowDate.getHours(), nowDate.getMinutes(), nowDate.getDay()];
-
+        let [month, day, year] = [nowDate.getMonth(), nowDate.getDate(), nowDate.getFullYear()];
+        let [hour, minutes, dayNumber] = [nowDate.getHours(), nowDate.getMinutes(), nowDate.getDay()];
         const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+        if(month < 10){
+            month = `0${month}`;
+        }
+        if(day < 10){
+            day = `0${day}`;
+        }
+        if(hour < 10){
+            hour = `0${hour}`;
+        }
+        if(minutes < 10){
+            minutes = `0${minutes}`;
+        }
         const lastVisitDate = `${year}-${month}-${day}(${weekDays[dayNumber]}), ${hour}:${minutes}`;
+
         window.localStorage.setItem("lastVisit", lastVisitDate);
     }
     //method for properties that do not require intervals

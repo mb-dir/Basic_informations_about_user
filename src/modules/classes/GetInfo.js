@@ -85,8 +85,7 @@ class GetInfo{
     //auxiliary methods(methods which do not "download" the informations, but are useful)
     setDateOfLastVisit(){
         const nowDate = new Date();
-        let [month, day, year] = [nowDate.getMonth(), nowDate.getDate(), nowDate.getFullYear()];
-        let [hour, minutes, dayNumber] = [nowDate.getHours(), nowDate.getMinutes(), nowDate.getDay()];
+        let [month, day, year, hour, minutes, dayNumber] = [nowDate.getMonth(), nowDate.getDate(), nowDate.getFullYear(), nowDate.getHours(), nowDate.getMinutes(), nowDate.getDay()];
         const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
         if(month < 10){

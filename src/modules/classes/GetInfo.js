@@ -70,7 +70,7 @@ class GetInfo{
     getTotalTime(){
         const totalTime = parseInt(window.localStorage.getItem("totalTime"));
         const totalTimeHours = Math.floor(totalTime/3600);
-        const totalTimeMinutes = Math.floor(totalTime/60);
+        const totalTimeMinutes = Math.floor((totalTime-(totalTimeHours*3600))/60);
         const totalTimeSeconds = Math.floor(totalTime-(totalTimeHours*3600+totalTimeMinutes*60));
 
         if(totalTimeHours!==0){

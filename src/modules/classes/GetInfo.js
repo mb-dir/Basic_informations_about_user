@@ -18,7 +18,7 @@ class GetInfo{
         this.renderInformations();
         this.timeCurrentlySpentRender();
         this.storageTotalTimeSpent();
-        this.cursorMoveCoordinates();
+        this.renderCursorCoordinates();
     }
     getOperatingSystem(){
         let OS = null;
@@ -166,6 +166,15 @@ class GetInfo{
 
             return coordinates;
         });
+    }
+    renderCursorCoordinates(){
+        const coordinates = this.cursorMoveCoordinates();
+        
+        const newInfo = document.createElement("li");
+        newInfo.className = "basicList__element informations__info";
+        newInfo.innerHTML = `Cursor coordinates: ${coordinates[0]}X, ${coordinates[1]}Y`;
+
+        this.infoContainer.appendChild(newInfo);
     }
 }
 

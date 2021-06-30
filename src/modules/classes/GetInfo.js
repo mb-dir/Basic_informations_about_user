@@ -160,6 +160,10 @@ class GetInfo{
         });
     }
     cursorMoveCoordinates(){
+        //If user is on the phone, do not show the coordinates of curosr
+        if(this.informationsToShow.Mobile1or1Desktop !== "desktop"){
+            return;
+        }
 
         const newInfo = document.createElement("li");
         newInfo.className = "basicList__element informations__info";

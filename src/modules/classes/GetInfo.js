@@ -18,6 +18,7 @@ class GetInfo{
         this.renderInformations();
         this.timeCurrentlySpentRender();
         this.storageTotalTimeSpent();
+        this.cursorMoveCoordinates();
     }
     getOperatingSystem(){
         let OS = null;
@@ -156,6 +157,14 @@ class GetInfo{
             }else{
                 window.localStorage.setItem("totalTime", spentSeconds); 
             }
+        });
+    }
+    cursorMoveCoordinates(){
+        window.addEventListener("mousemove", (e)=>{
+            const {clientX, clientY} = e;
+            const coordinates = [clientX, clientY];
+
+            return coordinates;
         });
     }
 }

@@ -18,7 +18,7 @@ class GetInfo{
         this.renderInformations();
         this.timeCurrentlySpentRender();
         this.storageTotalTimeSpent();
-        this.renderCursorCoordinates();
+        this.cursorMoveCoordinates();
     }
     getOperatingSystem(){
         let OS = null;
@@ -160,21 +160,16 @@ class GetInfo{
         });
     }
     cursorMoveCoordinates(){
-        window.addEventListener("mousemove", (e)=>{
-            const {clientX, clientY} = e;
-            const coordinates = [clientX, clientY];
 
-            return coordinates;
-        });
-    }
-    renderCursorCoordinates(){
-        const coordinates = this.cursorMoveCoordinates();
-        
         const newInfo = document.createElement("li");
         newInfo.className = "basicList__element informations__info";
-        newInfo.innerHTML = `Cursor coordinates: ${coordinates[0]}X, ${coordinates[1]}Y`;
-
+        newInfo.innerHTML = "Cursor coordinates: ?X, ?Y";
         this.infoContainer.appendChild(newInfo);
+
+        window.addEventListener("mousemove", (e)=>{
+            const {clientX, clientY} = e;
+            newInfo.innerHTML = `Cursor coordinates: ${clientX}X, ${clientY}Y`;
+        });
     }
 }
 

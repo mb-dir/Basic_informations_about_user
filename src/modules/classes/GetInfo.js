@@ -18,6 +18,7 @@ class GetInfo{
         this.renderInformations();
         this.timeCurrentlySpentRender();
         this.storageTotalTimeSpent();
+        this.cursorMoveCoordinates();
     }
     getOperatingSystem(){
         let OS = null;
@@ -156,6 +157,22 @@ class GetInfo{
             }else{
                 window.localStorage.setItem("totalTime", spentSeconds); 
             }
+        });
+    }
+    cursorMoveCoordinates(){
+        //If user is on the phone, do not show the coordinates of curosr
+        if(this.informationsToShow.Mobile1or1Desktop !== "desktop"){
+            return;
+        }
+
+        const newInfo = document.createElement("li");
+        newInfo.className = "basicList__element informations__info";
+        newInfo.innerHTML = "Cursor coordinates: ?X, ?Y";
+        this.infoContainer.appendChild(newInfo);
+
+        window.addEventListener("mousemove", (e)=>{
+            const {clientX, clientY} = e;
+            newInfo.innerHTML = `Cursor coordinates: ${clientX}X, ${clientY}Y`;
         });
     }
 }

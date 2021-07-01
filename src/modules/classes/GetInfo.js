@@ -75,7 +75,7 @@ class GetInfo{
         const totalTimeSeconds = Math.floor(totalTime-(totalTimeHours*3600+totalTimeMinutes*60));
 
         //If it is first visit, there is no "totalTime" in localStorage
-        if(totalTime === NaN){
+        if(isNaN(totalTime)){
             return "It is Your first visit here";
         }
 

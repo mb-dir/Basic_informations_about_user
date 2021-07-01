@@ -74,6 +74,11 @@ class GetInfo{
         const totalTimeMinutes = Math.floor((totalTime-(totalTimeHours*3600))/60);
         const totalTimeSeconds = Math.floor(totalTime-(totalTimeHours*3600+totalTimeMinutes*60));
 
+        //If it is first visit, there is no "totalTime" in localStorage
+        if(totalTime === NaN){
+            return "It is Your first visit here";
+        }
+
         if(totalTimeHours!==0){
             return `${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;
         }else if(totalTimeMinutes!==0){

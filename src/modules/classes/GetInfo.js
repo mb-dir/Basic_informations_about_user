@@ -184,6 +184,7 @@ class GetInfo{
     showNetworkStatus(){
         const newInfo = document.createElement("li");
         newInfo.className = "basicList__element informations__info";
+        this.infoContainer.appendChild(newInfo);
 
         const networkStatus = navigator.onLine;
 
@@ -193,7 +194,6 @@ class GetInfo{
             newInfo.innerHTML = "Online/offline: offline";
         }
 
-        this.infoContainer.appendChild(newInfo);
     }
 }
 

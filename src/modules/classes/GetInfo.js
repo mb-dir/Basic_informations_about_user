@@ -188,12 +188,13 @@ class GetInfo{
 
         const networkStatus = navigator.onLine;
 
+        //Network status assuming that there is no change in connection state
         if(networkStatus){
             newInfo.innerHTML = "Online/offline: online";
         }else{
             newInfo.innerHTML = "Online/offline: offline";
         }
-
+        //Network status if there is change in connection state
     }
 }
 

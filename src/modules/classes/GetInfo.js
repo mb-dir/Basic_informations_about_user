@@ -187,7 +187,11 @@ class GetInfo{
 
         const networkStatus = navigator.onLine;
 
-        newInfo.innerHTML = `Online/offline: ${networkStatus}`;
+        if(networkStatus){
+            newInfo.innerHTML = "Online/offline: online";
+        }else{
+            newInfo.innerHTML = "Online/offline: offline";
+        }
 
         this.infoContainer.appendChild(newInfo);
     }

@@ -195,6 +195,12 @@ class GetInfo{
             newInfo.innerHTML = "Online/offline: offline";
         }
         //Network status if there is change in connection state
+        window.addEventListener("online", ()=>{
+            newInfo.innerHTML = "Online/offline: online";
+        });
+        window.addEventListener("offline", ()=>{
+            newInfo.innerHTML = "Online/offline: offline";
+        });
     }
 }
 

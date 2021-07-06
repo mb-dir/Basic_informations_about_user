@@ -19,6 +19,7 @@ class GetInfo{
         this.timeCurrentlySpentRender();
         this.storageTotalTimeSpent();
         this.cursorMoveCoordinates();
+        this.showNetworkStatus();
     }
     getOperatingSystem(){
         let OS = null;
@@ -87,7 +88,7 @@ class GetInfo{
             return `${totalTimeSeconds}s`;
         }
     }
-    
+
     //auxiliary methods(methods which do not "download" the informations, but are useful)
     setDateOfLastVisit(){
         const nowDate = new Date();
@@ -178,6 +179,27 @@ class GetInfo{
         window.addEventListener("mousemove", (e)=>{
             const {clientX, clientY} = e;
             newInfo.innerHTML = `Cursor coordinates: ${clientX}X, ${clientY}Y`;
+        });
+    }
+    showNetworkStatus(){
+        const newInfo = document.createElement("li");
+        newInfo.className = "basicList__element informations__info";
+        this.infoContainer.appendChild(newInfo);
+
+        const networkStatus = navigator.onLine;
+
+        //Network status assuming that there is no change in connection state
+        if(networkStatus){
+            newInfo.innerHTML = "Online/offline: online";
+        }else{
+            newInfo.innerHTML = "Online/offline: offline";
+        }
+        //Network status if there is change in connection state
+        window.addEventListener("online", ()=>{
+            newInfo.innerHTML = "Online/offline: online";
+        });
+        window.addEventListener("offline", ()=>{
+            newInfo.innerHTML = "Online/offline: offline";
         });
     }
 }

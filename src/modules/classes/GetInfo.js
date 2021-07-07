@@ -20,6 +20,7 @@ class GetInfo{
         this.storageTotalTimeSpent();
         this.cursorMoveCoordinates();
         this.showNetworkStatus();
+        this.showBatteryInfo();
     }
     getOperatingSystem(){
         let OS = null;
@@ -200,6 +201,19 @@ class GetInfo{
         });
         window.addEventListener("offline", ()=>{
             newInfo.innerHTML = "Online/offline: offline";
+        });
+    }
+    async getBatteryInfo(){
+        try {
+            const batteryInfo = await navigator.getBattery();
+            return batteryInfo;
+        } catch (err) {
+            throw new Error(err);
+        }
+    }
+    showBatteryInfo(){
+        this.getBatteryInfo().then((info)=>{
+            console.log(info);
         });
     }
 }

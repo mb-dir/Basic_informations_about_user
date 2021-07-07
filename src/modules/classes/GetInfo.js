@@ -213,7 +213,18 @@ class GetInfo{
     }
     showBatteryInfo(){
         this.getBatteryInfo().then((info)=>{
-            console.log(info);
+            const {charging, level} = info;
+
+            //DOM operations related with static information abou battery status
+            const newInfoCharging = document.createElement("li");
+            newInfoCharging.className = "basicList__element informations__info";
+            this.infoContainer.appendChild(newInfoCharging);
+
+            if(charging){
+                newInfoCharging.innerHTML = "Is battery charging: Yes, it is";
+            }else{
+                newInfoCharging.innerHTML = "Is battery charging: No, it isn't";
+            }
         });
     }
 }

@@ -225,6 +225,16 @@ class GetInfo{
             }else{
                 newInfoCharging.innerHTML = "Is battery charging: No, it isn't";
             }
+
+            //DOM operations related with dynamically changing of battery status
+            info.addEventListener("chargingchange", ()=>{
+                const chargingNewStatus = info.charging;
+                if(chargingNewStatus){
+                    newInfoCharging.innerHTML = "Is battery charging: Yes, it is";
+                }else{
+                    newInfoCharging.innerHTML = "Is battery charging: No, it isn't";
+                }
+            });
         });
     }
 }

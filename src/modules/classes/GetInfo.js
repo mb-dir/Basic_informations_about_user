@@ -235,6 +235,15 @@ class GetInfo{
                     newInfoCharging.innerHTML = "Is battery charging: No, it isn't";
                 }
             });
+
+            //DOM operations related with showing level of battery
+            const newInfoBatteryLevel = document.createElement("li");
+            newInfoBatteryLevel.className = "basicList__element informations__info";
+            this.infoContainer.appendChild(newInfoBatteryLevel);
+
+            const batteryLevel = level*100;
+
+            newInfoBatteryLevel.innerHTML = `Battery level: ${batteryLevel}%`;
         });
     }
 }

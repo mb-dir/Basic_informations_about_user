@@ -212,8 +212,8 @@ class GetInfo{
         }
     }
     showBatteryInfo(){
-        this.getBatteryInfo().then((info)=>{
-            const {charging, level} = info;
+        this.getBatteryInfo().then((infoBattery)=>{
+            const {charging, level} = infoBattery;
 
             //DOM operations related with static information abou battery status
             const newInfoCharging = document.createElement("li");
@@ -227,8 +227,8 @@ class GetInfo{
             }
 
             //DOM operations related with dynamically changing of battery status
-            info.addEventListener("chargingchange", ()=>{
-                const chargingNewStatus = info.charging;
+            infoBattery.addEventListener("chargingchange", ()=>{
+                const chargingNewStatus = infoBattery.charging;
                 if(chargingNewStatus){
                     newInfoCharging.innerHTML = "Is battery charging: Yes, it is";
                 }else{
@@ -246,8 +246,8 @@ class GetInfo{
             newInfoBatteryLevel.innerHTML = `Battery level: ${batteryLevel}%`;
 
             //DOM operations related with dynamically showing level of battery
-            info.addEventListener("levelchange", ()=>{
-                const batteryNewLevel = info.level*100;
+            infoBattery.addEventListener("levelchange", ()=>{
+                const batteryNewLevel = infoBattery.level*100;
                 newInfoBatteryLevel.innerHTML = `Battery level: ${batteryNewLevel}%`;
             });
         });

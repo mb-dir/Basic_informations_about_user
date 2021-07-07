@@ -244,6 +244,12 @@ class GetInfo{
             const batteryLevel = level*100;
 
             newInfoBatteryLevel.innerHTML = `Battery level: ${batteryLevel}%`;
+
+            //DOM operations related with dynamically showing level of battery
+            info.addEventListener("levelchange", ()=>{
+                const batteryNewLevel = info.level*100;
+                newInfoBatteryLevel.innerHTML = `Battery level: ${batteryNewLevel}%`;
+            });
         });
     }
 }

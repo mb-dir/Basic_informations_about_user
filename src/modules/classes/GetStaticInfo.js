@@ -1,4 +1,4 @@
-class GetInfo{
+class GetStaticInfo{
     constructor(infoContainer){
         this.infoContainer = infoContainer;
         this.informationsToShow = {
@@ -254,4 +254,4 @@ class GetInfo{
     // }
 }
 
-export default GetInfo;
+export default GetStaticInfo;

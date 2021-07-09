@@ -12,7 +12,7 @@ class lastVisitInfo{
         this.infoContainer.appendChild(newInfo);
 
         const date = window.localStorage.getItem("lastVisit");
-        this.setDateOfLastVisit();
+
         if(date === null){
             newInfo.innerHTML =  "It is Your first visit here";
         }else{

@@ -1,5 +1,6 @@
 class CurrentlyTime{
     constructor(infoContainer){
+        //Container for elements to show(the elements are li with single info)
         this.infoContainer = infoContainer;
 
         this.timeCurrentlySpentRender();

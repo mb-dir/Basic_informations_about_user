@@ -1,9 +1,13 @@
+//Based on https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API
+
 class BatteryInfo{
     constructor(infoContainer){
+        //Container for elements to show(the elements are li with single info)
         this.infoContainer = infoContainer;
 
         this.showBatteryInfo();
     }
+    //Async method which returnes informations about battery
     async getBatteryInfo(){
         try {
             const batteryInfo = await navigator.getBattery();
@@ -12,6 +16,8 @@ class BatteryInfo{
             throw new Error(err);
         }
     }
+
+    //The method which handles the informations deliver from the async method
     showBatteryInfo(){
         this.getBatteryInfo().then((infoBattery)=>{
             const {charging, level} = infoBattery;

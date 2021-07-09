@@ -1,18 +1,24 @@
 class TotalTime{
     constructor(infoContainer){
+        //Container for elements to show(the elements are li with single info)
         this.infoContainer = infoContainer;
 
+         //Calling these two methods right away when the object is created in order to save/get the informations from storage 
         this.storageTotalTimeSpent();
         this.getTotalTime();
     }
     storageTotalTimeSpent(){
+        //Logic responsible for counting the spent time
         let spentSeconds = 0;
         setInterval(()=>{
             spentSeconds++;
         },1000);
 
+
+        //When user leaves the page the app saves inforamtion about time spent by him in local storage
         addEventListener("unload", ()=>{
             const timeFormStorage = parseInt(window.localStorage.getItem("totalTime"));
+            //If timeFormStorage exists spentSeconds will be add to it and save once again
             if(timeFormStorage){
                 window.localStorage.setItem("totalTime", spentSeconds + timeFormStorage);
             }else{

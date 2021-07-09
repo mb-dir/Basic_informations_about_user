@@ -1,5 +1,6 @@
 class NetworkStatus{
     constructor(infoContainer){
+        //Container for elements to show(the elements are li with single info)
         this.infoContainer = infoContainer;
 
         this.showNetworkStatus();

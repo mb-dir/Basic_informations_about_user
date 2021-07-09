@@ -12,4 +12,4 @@ I use my own [webpack boilerplate](https://github.com/mb-dir/webpack_basic_templ
 
 ## Demo
 
-Click [here](https://mb-dir.github.io/Basic_informations_about_user/) to see the live demo.
+Click [here](https://mb-dir.github.io/What_can_I_get_from_you/) to see the live demo.

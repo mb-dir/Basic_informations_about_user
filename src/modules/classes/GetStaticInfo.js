@@ -1,3 +1,6 @@
+//import lib which provides informations about OS and browser - https://github.com/bestiejs/platform.js
+const platform = require('platform');
+
 class GetStaticInfo{
     constructor(infoContainer){
         //Container for elements to show(the elements are li with single info)
@@ -6,8 +9,9 @@ class GetStaticInfo{
         //Object where are kept "static" informations which can be storage as a properties, to render the content of page basic on this properies a special method is used(renderInformations)
         //The names of propertes are specific(they are separate by 1), these "specificities" are used by the render method(renderInformations)
         this.informationsToShow = {
-            Your1operating1system: this.getOperatingSystem(),
-            Your1browser: this.getBrowserName(),
+            Your1operating1system: platform.os,
+            Your1browser: platform.name,
+            Browser1version: platform.version,
             Width1of1Your1screen: `${screen.width}px`,
             Height1of1Your1screen: `${screen.height}px`,
             Website1from1which1you1came1here: document.referrer ? document.referrer : "Probably Github",

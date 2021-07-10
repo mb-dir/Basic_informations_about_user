@@ -25,38 +25,6 @@ class GetStaticInfo{
     }
 
     //Methods which provide "static" informations, these methods deliver properties for informationsToShow object
-    getOperatingSystem(){
-        let OS = null;
-        if(navigator.userAgent.indexOf("Win") != -1){
-            OS = "Windows";
-        }else if(navigator.userAgent.indexOf("Mac") != -1){
-            OS = "Mac";
-        }
-        else if(navigator.userAgent.indexOf("X11") != -1){
-            OS = "UNIX";
-        }
-        else if(navigator.userAgent.indexOf("Linux") != -1){
-            OS = "Linux ";
-        }
-        return OS;
-    }
-    getBrowserName(){
-        let browser = null;
-        if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
-            browser = "Opera";
-        } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
-            browser =  "Chrome";
-        } else if(navigator.userAgent.indexOf("Safari") != -1) {
-            browser =  "Safari";
-        } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
-            browser =  "Firefox";
-        } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
-            browser =  "IE";
-        } else {
-            browser =  "Unknown";
-        }
-        return browser;
-    }
 
     //Code from https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
     mobileOrDesktop(){

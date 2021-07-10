@@ -1,3 +1,6 @@
+//import lib which provides informations about OS and browser - https://github.com/bestiejs/platform.js
+const platform = require('platform');
+
 class GetStaticInfo{
     constructor(infoContainer){
         //Container for elements to show(the elements are li with single info)
@@ -6,8 +9,9 @@ class GetStaticInfo{
         //Object where are kept "static" informations which can be storage as a properties, to render the content of page basic on this properies a special method is used(renderInformations)
         //The names of propertes are specific(they are separate by 1), these "specificities" are used by the render method(renderInformations)
         this.informationsToShow = {
-            Your1operating1system: this.getOperatingSystem(),
-            Your1browser: this.getBrowserName(),
+            Your1operating1system: platform.os,
+            Your1browser: platform.name,
+            Browser1version: platform.version,
             Width1of1Your1screen: `${screen.width}px`,
             Height1of1Your1screen: `${screen.height}px`,
             Website1from1which1you1came1here: document.referrer ? document.referrer : "Probably Github",
@@ -20,39 +24,7 @@ class GetStaticInfo{
         this.renderInformations();
     }
 
-    //Methods which provide "static" informations, these methods deliver properties for informationsToShow object
-    getOperatingSystem(){
-        let OS = null;
-        if(navigator.userAgent.indexOf("Win") != -1){
-            OS = "Windows";
-        }else if(navigator.userAgent.indexOf("Mac") != -1){
-            OS = "Mac";
-        }
-        else if(navigator.userAgent.indexOf("X11") != -1){
-            OS = "UNIX";
-        }
-        else if(navigator.userAgent.indexOf("Linux") != -1){
-            OS = "Linux ";
-        }
-        return OS;
-    }
-    getBrowserName(){
-        let browser = null;
-        if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
-            browser = "Opera";
-        } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
-            browser =  "Chrome";
-        } else if(navigator.userAgent.indexOf("Safari") != -1) {
-            browser =  "Safari";
-        } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
-            browser =  "Firefox";
-        } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
-            browser =  "IE";
-        } else {
-            browser =  "Unknown";
-        }
-        return browser;
-    }
+    //Method which provides "static" informations, this method delivers property for informationsToShow object
 
     //Code from https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
     mobileOrDesktop(){

@@ -24,7 +24,7 @@ class GetStaticInfo{
         this.renderInformations();
     }
 
-    //Methods which provide "static" informations, these methods deliver properties for informationsToShow object
+    //Method which provides "static" informations, this method delivers property for informationsToShow object
 
     //Code from https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
     mobileOrDesktop(){

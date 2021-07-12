@@ -1,4 +1,5 @@
 //Based on https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API
+//As you can read on MDN battery status api is not supported in some browser, but I consciously do not delete this part of code
 
 class BatteryInfo{
     constructor(infoContainer){

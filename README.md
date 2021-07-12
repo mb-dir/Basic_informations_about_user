@@ -13,3 +13,7 @@ I use my own [webpack boilerplate](https://github.com/mb-dir/webpack_basic_templ
 ## Demo
 
 Click [here](https://mb-dir.github.io/What_can_I_get_from_you/) to see the live demo.
+
+## My comments
+
+- I consciously use [battery status api](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API), I know it doesn't work in all browsers, despite this fact I want to the app shows information about battery in every browser where it is possible.

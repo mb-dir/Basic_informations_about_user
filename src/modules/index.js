@@ -9,6 +9,7 @@ import CursorMoveCoordinates from "./classes/CursorMoveCoordinatesInfo";
 import TotalTime from "./classes/TotalTimeSpentInfo";
 import CurrentlyTime from "./classes/CurrentlyTime";
 import LastVisitInfo from "./classes/LastVisitInfo";
+import UserMedia from "./classes/UserMedia";
 
 //variables ralated with DOM
 const infoContainer = document.querySelector("#infoContainer");
@@ -21,3 +22,4 @@ const cursorMoveCoordinates = new CursorMoveCoordinates(infoContainer);
 const totalTime = new TotalTime(infoContainer);
 const currentlyTime = new CurrentlyTime(infoContainer);
 const lastVisitInfo = new LastVisitInfo(infoContainer);
+const userMedia = new UserMedia(infoContainer, "audiooutput", "dupa");

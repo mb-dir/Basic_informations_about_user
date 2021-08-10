@@ -22,4 +22,5 @@ const cursorMoveCoordinates = new CursorMoveCoordinates(infoContainer);
 const totalTime = new TotalTime(infoContainer);
 const currentlyTime = new CurrentlyTime(infoContainer);
 const lastVisitInfo = new LastVisitInfo(infoContainer);
+//The class below  checks if the user has such a medias. The media which have to be check are passed here as the arguments
 const userMedia = new UserMedia(infoContainer, "audiooutput", "audioinput", "videoinput");

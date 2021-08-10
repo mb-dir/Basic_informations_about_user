@@ -6,7 +6,8 @@ class UserMedia{
         this.meidaTypesToCheck = meidaTypesToCheck;
         this.getMedia();
     }
-    //async method which returnes info about avaiable media
+
+    //async method which returnes info about avaiable media, it returnes array of objects which describle avaiavle media
     async getMedia(){
         try{
             const md = navigator.mediaDevices;
@@ -14,7 +15,6 @@ class UserMedia{
               return false;
             }else{
                 const devices = await md.enumerateDevices();
-                console.log(devices);
                 return devices;
             }
         }catch(err){

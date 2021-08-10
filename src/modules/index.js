@@ -22,4 +22,4 @@ const cursorMoveCoordinates = new CursorMoveCoordinates(infoContainer);
 const totalTime = new TotalTime(infoContainer);
 const currentlyTime = new CurrentlyTime(infoContainer);
 const lastVisitInfo = new LastVisitInfo(infoContainer);
-const userMedia = new UserMedia(infoContainer, "audiooutput", "dupa");
+const userMedia = new UserMedia(infoContainer, "audiooutput", "audioinput", "videoinput");

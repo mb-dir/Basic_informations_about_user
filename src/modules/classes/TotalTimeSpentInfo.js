@@ -39,7 +39,7 @@ class TotalTime{
 
         //If it is first visit, there is no "totalTime" in localStorage
         if(isNaN(totalTime)){
-            newInfo.innerHTML = "It is Your first visit here";
+            newInfo.innerHTML = "Total time spent on this page by you: It is Your first visit here";
         }else{//otherwise show a properly prepared message about the time spent
             if(totalTimeHours!==0){
                 newInfo.innerHTML = `Total time spent on this page by you: ${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;

@@ -18,7 +18,7 @@ class lastVisitInfo{
         const date = window.localStorage.getItem("lastVisit");
 
         if(date === null){
-            newInfo.innerHTML =  "It is Your first visit here";
+            newInfo.innerHTML =  "Date of your last visit here: It is Your first visit here";
         }else{
             newInfo.innerHTML = date;
         }
@@ -42,7 +42,7 @@ class lastVisitInfo{
         if(minutes < 10){
             minutes = `0${minutes}`;
         }
-        const lastVisitDate = `${year}-${month}-${day}(${weekDays[dayNumber]}), ${hour}:${minutes}`;
+        const lastVisitDate = `Date of your last visit here: ${year}-${month}-${day}(${weekDays[dayNumber]}), ${hour}:${minutes}`;
 
         window.localStorage.setItem("lastVisit", lastVisitDate);
     }

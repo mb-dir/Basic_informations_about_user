@@ -40,14 +40,14 @@ class TotalTime{
         //If it is first visit, there is no "totalTime" in localStorage
         if(isNaN(totalTime)){
             newInfo.innerHTML = "It is Your first visit here";
-        }
-
-        if(totalTimeHours!==0){
-            newInfo.innerHTML = `Total time spent on this page by you: ${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;
-        }else if(totalTimeMinutes!==0){
-            newInfo.innerHTML = `Total time spent on this page by you: ${totalTimeMinutes}m ${totalTimeSeconds}s`;
-        }else{
-            newInfo.innerHTML = `Total time spent on this page by you: ${totalTimeSeconds}s`;
+        }else{//otherwise show a properly prepared message about the time spent
+            if(totalTimeHours!==0){
+                newInfo.innerHTML = `Total time spent on this page by you: ${totalTimeHours}h ${totalTimeMinutes}m ${totalTimeSeconds}s`;
+            }else if(totalTimeMinutes!==0){
+                newInfo.innerHTML = `Total time spent on this page by you: ${totalTimeMinutes}m ${totalTimeSeconds}s`;
+            }else{
+                newInfo.innerHTML = `Total time spent on this page by you: ${totalTimeSeconds}s`;
+            }
         }
     }
 }

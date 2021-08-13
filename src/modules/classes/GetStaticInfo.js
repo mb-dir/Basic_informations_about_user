@@ -61,8 +61,10 @@ class GetStaticInfo{
             link.href = previousPageRef;
             link.classList.add("informations__link");
             link.innerHTML = "->click here to back<-";
-            
+
             newInfoContainer.appendChild(link);
+        }else{
+            newInfoContainer.innerHTML = "Website from which you came here: Sorry, this browser doesn't have access to such an informations";
         }
     }
 }

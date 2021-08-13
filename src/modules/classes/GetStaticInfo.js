@@ -47,6 +47,19 @@ class GetStaticInfo{
             this.infoContainer.appendChild(newInfo);
         }
     }
+
+    previousPageLink(previousPageRef, newInfoContainer){
+        //I want to be sure that previousPageRef exists
+        if(previousPageRef){
+            //Logic responsible for creating suitable <a> element
+            const link = document.createElement("a");
+            link.href = previousPageRef;
+            link.classList.add("informations__link");
+            link.innerHTML = "->click here to back<-";
+            
+            newInfoContainer.appendChild(link);
+        }
+    }
 }
 
 export default GetStaticInfo;

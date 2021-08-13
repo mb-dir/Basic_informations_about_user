@@ -14,7 +14,7 @@ class GetStaticInfo{
             Browser1version: platform.version,
             Width1of1Your1screen: `${screen.width}px`,
             Height1of1Your1screen: `${screen.height}px`,
-            Website1from1which1you1came1here: document.referrer ? document.referrer : "Probably Github",
+            Website1from1which1you1came1here: document.referrer,
             cookie: navigator.cookieEnabled ? "enabled" : "disabled",
             java: navigator.javaEnabled() ? "enabled" : "disabled",
             Mobile1or1Desktop: this.mobileOrDesktop(),
@@ -44,7 +44,27 @@ class GetStaticInfo{
             const decryptedKey = key.split("1").join(" ");
 
             newInfo.innerHTML = `${decryptedKey}: ${value}`;
+            
+            //If there is a corresponding property, call the special method which have to display it in an appropriate way
+            if(decryptedKey === "Website from which you came here"){
+                this.previousPageLink(value, newInfo);
+            }
             this.infoContainer.appendChild(newInfo);
+        }
+    }
+
+    previousPageLink(previousPageRef, newInfoContainer){
+        //I want to be sure that previousPageRef exists
+        if(previousPageRef){
+            //Logic responsible for creating suitable <a> element
+            const link = document.createElement("a");
+            link.href = previousPageRef;
+            link.classList.add("informations__link");
+            link.innerHTML = "->click here to back<-";
+
+            newInfoContainer.appendChild(link);
+        }else{
+            newInfoContainer.innerHTML = "Website from which you came here: Sorry, this browser doesn't have access to such an informations";
         }
     }
 }

@@ -44,6 +44,11 @@ class GetStaticInfo{
             const decryptedKey = key.split("1").join(" ");
 
             newInfo.innerHTML = `${decryptedKey}: ${value}`;
+            
+            //If there is a corresponding property, call the special method which have to display it in an appropriate way
+            if(decryptedKey === "Website from which you came here"){
+                this.previousPageLink(value, newInfo);
+            }
             this.infoContainer.appendChild(newInfo);
         }
     }

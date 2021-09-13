@@ -13,6 +13,15 @@ class GeoCoordinates{
 
         this.infoContainer.appendChild(newInfo);
 
+        //Check if the browser supports the geolocation api
+        if(!navigator.geolocation) {
+            newInfo.innerHTML = "Geolocation is not supported by your browser";
+        }else{
+            newInfo.innerHTML = "Locating…";
+            //If everything is ok use getCurrentPosition function
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+
         //auxiliary functions related with geolocation API(https://developer.mozilla.org/pl/docs/Web/API/Geolocation_API)- these are navigator.geolocation.getCurrentPosition callbacks
         function success(position) {
             const latitude  = position.coords.latitude;

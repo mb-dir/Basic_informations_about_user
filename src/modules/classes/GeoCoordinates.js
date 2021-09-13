@@ -7,7 +7,11 @@ class GeoCoordinates{
         this.getCoordinates();
     }
     getCoordinates(){
-        console.log("Apud");
+        //Create an appropriate HTML element(in this element the information will be kept) 
+        const newInfo = document.createElement("li");
+        newInfo.className = "basicList__element informations__info";
+
+        this.infoContainer.appendChild(newInfo);
     }
 }
 

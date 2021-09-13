@@ -24,8 +24,9 @@ class GeoCoordinates{
 
         //auxiliary functions related with geolocation API(https://developer.mozilla.org/pl/docs/Web/API/Geolocation_API)- these are navigator.geolocation.getCurrentPosition callbacks
         function success(position) {
-            const latitude  = position.coords.latitude;
-            const longitude = position.coords.longitude;
+            //Round the numbers
+            const latitude  = position.coords.latitude.toFixed(2);
+            const longitude = position.coords.longitude.toFixed(2);
             
             newInfo.innerHTML = `latitude/longitude: ${latitude} ${longitude}`;
           }

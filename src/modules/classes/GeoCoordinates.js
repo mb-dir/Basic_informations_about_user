@@ -34,6 +34,14 @@ class GeoCoordinates{
             longitude = position.coords.longitude.toFixed(2);
             
             newInfo.innerHTML = `latitude/longitude: ${latitude} ${longitude}`;
+            
+            //Create an <a> element with reference to map with current user position
+            const mapRefLink = document.createElement("a");
+            mapRefLink.href = mapRef;
+            mapRefLink.classList.add("informations__link");
+            mapRefLink.innerHTML = "->click here to see the position on the map<-";
+            //Append link element to li element
+            newInfo.appendChild(mapRefLink);
           }
         
           function error() {

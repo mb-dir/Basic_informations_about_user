@@ -24,11 +24,24 @@ class GeoCoordinates{
 
         //auxiliary functions related with geolocation API(https://developer.mozilla.org/pl/docs/Web/API/Geolocation_API)- these are navigator.geolocation.getCurrentPosition callbacks
         function success(position) {
+            //Precise values
+            let latitude  = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            //Set the appropriate reference on google maps
+            const mapRef = `https://www.google.pl/maps/@${latitude},${longitude},4440m/data=!3m1!1e3`;
             //Round the numbers
-            const latitude  = position.coords.latitude.toFixed(2);
-            const longitude = position.coords.longitude.toFixed(2);
+            latitude  = position.coords.latitude.toFixed(2);
+            longitude = position.coords.longitude.toFixed(2);
             
             newInfo.innerHTML = `latitude/longitude: ${latitude} ${longitude}`;
+            
+            //Create an <a> element with reference to map with current user position
+            const mapRefLink = document.createElement("a");
+            mapRefLink.href = mapRef;
+            mapRefLink.classList.add("informations__link");
+            mapRefLink.innerHTML = "->click here to see the position on the map<-";
+            //Append link element to li element
+            newInfo.appendChild(mapRefLink);
           }
         
           function error() {

@@ -19,7 +19,7 @@ class Geocoding{
         if(!navigator.geolocation) {
             newInfo.innerHTML = "Geolocation is not supported by your browser";
         }else{
-            newInfo.innerHTML = "Locating…";
+            newInfo.innerHTML = "City/district/voivodeship/country/post code: Locating…";
             //If everything is ok use getCurrentPosition function
             navigator.geolocation.getCurrentPosition(success, error);
         }

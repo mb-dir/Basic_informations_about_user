@@ -34,7 +34,16 @@ class Geocoding{
             
             fetch(apiRef)
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then((data) => {
+                    //Look here ->https://developers.google.com/maps/documentation/geocoding/overview#reverse-example to see how the data structure looks like
+                    //data.results[0] cuz there is more than one result(it is related with inaccuracy of geolocation API - several places fit the given latitude and longitude)
+                    const cityName = data.results[0].address_components[1].long_name;
+                    const districtName = data.results[0].address_components[2].long_name;
+                    const voivodeshipName = data.results[0].address_components[3].long_name;
+                    const countryName = data.results[0].address_components[4].long_name;
+                    const postCode = data.results[0].address_components[5].long_name
+                    console.log(cityName, districtName, voivodeshipName, countryName, postCode);
+                })
                 .catch(error => console.log(error));
           }
         

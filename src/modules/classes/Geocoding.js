@@ -42,7 +42,8 @@ class Geocoding{
                     const voivodeshipName = data.results[0].address_components[3].long_name;
                     const countryName = data.results[0].address_components[4].long_name;
                     const postCode = data.results[0].address_components[5].long_name
-                    console.log(cityName, districtName, voivodeshipName, countryName, postCode);
+                    
+                    newInfo.innerHTML = `City/district/voivodeship/country/post code: ${cityName}/${districtName}/${voivodeshipName}/${countryName}/${postCode}`;
                 })
                 .catch(error => console.log(error));
           }

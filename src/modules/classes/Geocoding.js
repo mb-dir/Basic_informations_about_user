@@ -1,3 +1,5 @@
+import API_KEY from "../config";
+
 class Geocoding{
     constructor(infoContainer){
         //Container for elements to show(the elements are li with single info)

@@ -32,7 +32,10 @@ class Geocoding{
             //Based on api key, latitude and longitude create the appropriate address - this address in passed to fetch
             const apiRef = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}`;
             
-            console.log(apiRef)
+            fetch(apiRef)
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.log(error));
           }
         
           function error() {
